@@ -1,10 +1,8 @@
-orbyter_demo
+Orbyter Demo
 ==============================
-[Put CI Badge Here]
+![CI](https://github.com/manifoldai/orbyter-demo/workflows/Continuous%20Integration/badge.svg)
 
-**Note that this is a stub README that contains boilerplate for many of the common operations done inside an ML repo. You should customize it appropriately for your specific project**
-
-My Project Description
+Demo repository scaffolded using the Orbyter cookiecutter.
 
 # Setup
 
