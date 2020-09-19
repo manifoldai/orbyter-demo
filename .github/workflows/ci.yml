@@ -1,0 +1,23 @@
+name: Continuous Integration
+
+on: [push]
+
+jobs:
+    test:
+      runs-on: ubuntu-latest
+      container:
+        image: docker://manifoldai/orbyter-ml-dev:2.0
+      steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Black
+        run: black --check orbyter_demo
+      - name: Flake8 
+        run: flake8 orbyter_demo
+      - name: Unit Tests
+        run: |
+          pip install -r docker/requirements.txt
+          pytest orbyter_demo
+        env:
+          MLFLOW_TRACKING_URI: /experiments
+          MLFLOW_ARTIFACT_LOCATION: 
