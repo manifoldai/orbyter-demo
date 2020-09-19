@@ -1,1 +1,20 @@
-experiment_name: 'test_experiment'
+global:
+  raw_data_dir: "data/demo/raw"
+  processed_data_dir: "data/demo/processed"
+
+model:
+  model_name: "random_forest"
+  model_params: {}
+  # dir to save model weights
+  model_path: "model_cache/demo_model.pkl"
+
+evaluate:
+  # Flag to retrain the model or not. If False, then the cached model from model->model_dir will be used as model.
+  retrain: True
+  # MLFlow experiment name
+  experiment_name: "demo"
+
+predict:
+  model_path: "model_cache/demo_model.pkl"
+  data_path: "data/demo/processed/X.pqt"
+  predictions_path: "data/demo/predictions/yhat.pqt"

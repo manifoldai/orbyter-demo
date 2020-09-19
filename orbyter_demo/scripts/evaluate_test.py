@@ -1,15 +1,11 @@
-import os
-
 import pytest
 from click.testing import CliRunner
 
-from orbyter_demo.scripts.evaluate import main
+from orbyter_demo.scripts.evaluate import evaluate
 
 
-@pytest.mark.parametrize("config_file", [("configs/config.yml")])
+@pytest.mark.parametrize("config_file", [("configs/test_config.yml")])
 def test_evaluate(config_file):
     runner = CliRunner()
-    os.environ["MLFLOW_TRACKING_URI"] = "./experiments"
-    os.environ["MLFLOW_ARTIFACT_LOCATION"] = ""
-    result = runner.invoke(main, [config_file])
+    result = runner.invoke(evaluate, [config_file])
     assert result.exit_code == 0
