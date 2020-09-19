@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>orbyter_demo documentation &#8212; orbyter_demo 0.1 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">orbyter_demo 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="orbyter-demo-documentation">
+<h1>orbyter_demo documentation<a class="headerlink" href="#orbyter-demo-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="module-orbyter_demo.scripts.train">
+<span id="orbyter-demo-scripts-train"></span><h1>orbyter_demo.scripts.train<a class="headerlink" href="#module-orbyter_demo.scripts.train" title="Permalink to this headline">¶</a></h1>
+<p>This module is for training models.</p>
+<p class="rubric">Examples</p>
+<p>Example command line executable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python train.py /mnt/configs/config.yml
+</pre></div>
+</div>
+<dl class="function">
+<dt id="orbyter_demo.scripts.train.train">
+<code class="descclassname">orbyter_demo.scripts.train.</code><code class="descname">train</code><span class="sig-paren">(</span><em>model</em>, <em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="headerlink" href="#orbyter_demo.scripts.train.train" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model trainer for models and pipelines that adhere to the sklearn API.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>sklearn.model</em>) – model that adheres to sklearn model API</p></li>
+<li><p><strong>X</strong> (<em>DataFrame</em>) – feature matrix</p></li>
+<li><p><strong>y</strong> (<em>DataFrame</em>) – target variable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trained model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>trained_model (sklearn.model)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-orbyter_demo.scripts.evaluate">
+<span id="orbyter-demo-scripts-evaluate"></span><h1>orbyter_demo.scripts.evaluate<a class="headerlink" href="#module-orbyter_demo.scripts.evaluate" title="Permalink to this headline">¶</a></h1>
+<p>This module is for the evaluation of model performance.</p>
+<p class="rubric">Examples</p>
+<p>Example command line executable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python evaluate.py config.yml
+</pre></div>
+</div>
+<dl class="function">
+<dt id="orbyter_demo.scripts.evaluate.log_experiment">
+<code class="descclassname">orbyter_demo.scripts.evaluate.</code><code class="descname">log_experiment</code><span class="sig-paren">(</span><em>params={}</em>, <em>metrics={}</em>, <em>artifacts={}</em>, <em>experiment_name='my_experiment'</em>, <em>mlflow_tracking_uri='./experiments'</em>, <em>mlflow_artifact_location=None</em><span class="sig-paren">)</span><a class="headerlink" href="#orbyter_demo.scripts.evaluate.log_experiment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Evaluate the model and log it with mlflow</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>params</strong> (<em>dict</em>) – dictionary of parameters to log</p></li>
+<li><p><strong>metrics</strong> (<em>dict</em>) – dictionary of metrics to log</p></li>
+<li><p><strong>artifacts</strong> (<em>dict</em>) – dictionary of artifacts (path) to log</p></li>
+<li><p><strong>experiment_name</strong> (<em>str</em>) – experiment name</p></li>
+<li><p><strong>mlflow_tracking_uri</strong> (<em>str</em>) – path or sql url for mlflow logging</p></li>
+<li><p><strong>mlflow_artifact_location</strong> (<em>str</em>) – path or s3bucket url for artifact
+logging. If none, it will default to a standard.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="orbyter_demo.scripts.evaluate.plot_y_yhat">
+<code class="descclassname">orbyter_demo.scripts.evaluate.</code><code class="descname">plot_y_yhat</code><span class="sig-paren">(</span><em>y_true</em>, <em>y_predicted</em><span class="sig-paren">)</span><a class="headerlink" href="#orbyter_demo.scripts.evaluate.plot_y_yhat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot hexbin plot of ytrue vs ypred for regression.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_true</strong> (<em>np.array</em>) – true values</p></li>
+<li><p><strong>y_pred</strong> (<em>np.array</em>) – predicted values</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>fig (matplotlib.figure)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-orbyter_demo.scripts.predict">
+<span id="orbyter-demo-scripts-predict"></span><h1>orbyter_demo.scripts.predict<a class="headerlink" href="#module-orbyter_demo.scripts.predict" title="Permalink to this headline">¶</a></h1>
+<p>This module is for running predictions.</p>
+<p class="rubric">Examples</p>
+<p>Example command line executable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python predict.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-orbyter_demo.util.config">
+<span id="orbyter-demo-util-config"></span><h1>orbyter_demo.util.config<a class="headerlink" href="#module-orbyter_demo.util.config" title="Permalink to this headline">¶</a></h1>
+<p>This module is for config utility functions.</p>
+<dl class="function">
+<dt id="orbyter_demo.util.config.parse_config">
+<code class="descclassname">orbyter_demo.util.config.</code><code class="descname">parse_config</code><span class="sig-paren">(</span><em>config_file</em><span class="sig-paren">)</span><a class="headerlink" href="#orbyter_demo.util.config.parse_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function to parse the Yaml config file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>config_file</strong> (<em>str</em>) – yml configuration file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>parsed dictionary object</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-orbyter_demo.util.logging">
+<span id="orbyter-demo-util-logging"></span><h1>orbyter_demo.util.logging<a class="headerlink" href="#module-orbyter_demo.util.logging" title="Permalink to this headline">¶</a></h1>
+<p>This module is for logging utility functions.</p>
+<dl class="function">
+<dt id="orbyter_demo.util.logging.setup_logging">
+<code class="descclassname">orbyter_demo.util.logging.</code><code class="descname">setup_logging</code><span class="sig-paren">(</span><em>logging_config='logging.yml'</em>, <em>default_level=20</em><span class="sig-paren">)</span><a class="headerlink" href="#orbyter_demo.util.logging.setup_logging" title="Permalink to this definition">¶</a></dt>
+<dd><p>Setup logging configuration</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logging</strong> (<em>str</em>) – logging yaml config</p></li>
+<li><p><strong>default_level</strong> (<em>logging.LEVEL</em>) – default logging level</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="orbyter_demo.util.logging.setup_logging_env">
+<code class="descclassname">orbyter_demo.util.logging.</code><code class="descname">setup_logging_env</code><span class="sig-paren">(</span><em>main: Callable</em><span class="sig-paren">)</span> &#x2192; Callable<a class="headerlink" href="#orbyter_demo.util.logging.setup_logging_env" title="Permalink to this definition">¶</a></dt>
+<dd><p>Decorator to set up loggging and load env variables</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>main</strong> – top level function (typically main triggered by CLI)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>function after setting up logging and loading env variables</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">orbyter_demo documentation</a></li>
+<li><a class="reference internal" href="#module-orbyter_demo.scripts.train">orbyter_demo.scripts.train</a></li>
+<li><a class="reference internal" href="#module-orbyter_demo.scripts.evaluate">orbyter_demo.scripts.evaluate</a></li>
+<li><a class="reference internal" href="#module-orbyter_demo.scripts.predict">orbyter_demo.scripts.predict</a></li>
+<li><a class="reference internal" href="#module-orbyter_demo.util.config">orbyter_demo.util.config</a></li>
+<li><a class="reference internal" href="#module-orbyter_demo.util.logging">orbyter_demo.util.logging</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">orbyter_demo 0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright .
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.0.1.
+    </div>
+  </body>
+</html>
